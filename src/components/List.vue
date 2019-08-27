@@ -3,13 +3,9 @@
     <label>评论回复</label>
     <div class="row">
       <ul class="col-md-12 content-ul">
-        <li>
-          <label>xxx说：</label><br>
-          <p>vue so easy</p>
-        </li>
-        <li>
-          <label>yyy说：</label><br>
-          <p>vue so easy</p>
+        <li v-for="(comment, index) in comments" :key="index">
+          <label>{{comment.username}}说：</label><br>
+          <p>{{comment.comment}}</p>
         </li>
       </ul>
     </div>
@@ -17,7 +13,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+    props: {
+        comments: {
+            type: Object,
+            required: true
+        }
+    }
+}
 </script>
 
 <style scoped>

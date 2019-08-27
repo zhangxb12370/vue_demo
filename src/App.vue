@@ -5,8 +5,8 @@
     </nav>
     <div class="row">
       <div class="col-md-1"></div>
-      <Add></Add>
-      <List></List>
+      <Add :addComment="addComment"></Add>
+      <List :comments="comments"></List>
       <div class="col-md-1"></div>
     </div>
   </div>
@@ -17,10 +17,15 @@ import HelloWorld from './components/HelloWorld'
 import Add from './components/Add'
 import List from './components/List'
 export default {
+  data () {
+      return {
+          comments: []
+      }
+  },
   components: {HelloWorld, Add, List},
   methods: {
-    handleSubmit: function () {
-      console.log('提交')
+    addComment: function (comment) {
+      this.comments.unshift(comment)
     }
   }
 }
@@ -35,5 +40,4 @@ export default {
     margin-left: 80px;
     line-height: 150px;
   }
-
 </style>
