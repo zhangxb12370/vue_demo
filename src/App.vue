@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-1"></div>
       <Add :addComment="addComment"></Add>
-      <List :comments="comments"></List>
+      <List :comments="comments" :delComment="delComment"></List>
       <div class="col-md-1"></div>
     </div>
   </div>
@@ -18,14 +18,17 @@ import Add from './components/Add'
 import List from './components/List'
 export default {
   data () {
-      return {
-          comments: []
-      }
+    return {
+      comments: []
+    }
   },
   components: {HelloWorld, Add, List},
   methods: {
     addComment: function (comment) {
       this.comments.unshift(comment)
+    },
+    delComment: function (index) {
+      this.comments.shift(index)
     }
   }
 }

@@ -15,23 +15,23 @@
 <script>
 export default {
   props: {
-      addComment: {
-          type: Function,
-          required: true
-      }
+    addComment: {
+      type: Function,
+      required: true
+    }
   },
   data () {
-      return {
-          username: '',
-          content: ''
-      }
+    return {
+      username: '',
+      content: ''
+    }
   },
   methods: {
-      handleSubmit: function () {
-          const username = this.username;
-          const comment = this.content;
-          this.addComment({username, comment})
-      }
+    handleSubmit: function () {
+      const username = this.username
+      const comment = this.content
+      this.addComment({username, comment})
+    }
   }
 }
 </script>

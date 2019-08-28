@@ -4,7 +4,7 @@
     <div class="row">
       <ul class="col-md-12 content-ul">
         <li v-for="(comment, index) in comments" :key="index">
-          <label>{{comment.username}}说：</label><br>
+          <label>{{comment.username}}说：</label><button class="del-comment" @click="handleDel(index)">删除</button><br>
           <p>{{comment.comment}}</p>
         </li>
       </ul>
@@ -14,12 +14,21 @@
 
 <script>
 export default {
-    props: {
-        comments: {
-            type: Object,
-            required: true
-        }
+  props: {
+    comments: {
+      type: Array,
+      required: true
+    },
+    delComment: {
+      type: Function,
+      required: true
     }
+  },
+  methods: {
+    handleDel: function (index) {
+      this.delComment(index)
+    }
+  }
 }
 </script>
 
@@ -35,5 +44,8 @@ export default {
   }
   .content-ul>li>p{
     text-indent: 10px;
+  }
+  .del-comment{
+    float: right;
   }
 </style>
